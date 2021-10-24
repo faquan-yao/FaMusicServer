@@ -6,7 +6,7 @@ from .models import User
 # Create your views here.
 
 def hello_world(request):
-    return HttpResponse("Hello world")
+    return HttpResponse("Hello FaMusic")
 
 def famusic_user(request):
     user = User.objects.all()[0]
