@@ -6,8 +6,6 @@ from django.db import models
 class User(models.Model):
 
     id = models.AutoField(primary_key=True)
-    user_id = models.TextField(default="")
-    email = models.TextField(default="")
     phone_number = models.TextField(default="")
     nick_name = models.TextField(default="")
     password = models.TextField(default="")
