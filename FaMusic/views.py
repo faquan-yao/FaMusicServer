@@ -17,13 +17,18 @@ def famusic_user(request):
 
 def login(request):
     if request.method == 'POST':
-        account = request.POST.get('account')
-        password = request.POST.get('password')
-        log.debug(f"account = {account}, password = {password}")
-        user = User.objects.filter(id=account)[0]
-        if password == user.password:
-            return HttpResponse("login sucess!")
-        else:
+        try:
+            account = request.POST.get('account')
+            password = request.POST.get('password')
+            log.debug(f"account = {account}, password = {password}")
+            user = User.objects.filter(id=account)[0]
+            if password == user.password:
+                return HttpResponse("login sucess!")
+            else:
+                log.debug("password error!")
+                return HttpResponse("account or password error!")
+        except BaseException:
+            log.debug("login except!")
             return HttpResponse("account or password error!")
 
 def reg(request):
@@ -32,6 +37,6 @@ def reg(request):
         password = request.POST.get('password')
 
         user_obj = User.objects.create(nick_name=nickname, password=password)
-        log.debug(f"register username = {user_obj.nickname}, password = {user_obj.password}")
-        return HttpResponse("register success!")
+        log.debug(f"register id = {user_obj.id}, username = {user_obj.nickname}, password = {user_obj.password}")
+        return HttpResponse(f"id = {user_obj.id}")
     return HttpResponse("register failed!")
