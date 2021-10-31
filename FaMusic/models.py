@@ -9,7 +9,6 @@ class User(models.Model):
     user_id = models.TextField(default="")
     email = models.TextField(default="")
     phone_number = models.TextField(default="")
-    login_name = models.TextField(default="")
     nick_name = models.TextField(default="")
     password = models.TextField(default="")
     head_photo = models.CharField(max_length=65536)
