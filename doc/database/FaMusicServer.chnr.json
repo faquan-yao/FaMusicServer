@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.5.7",
   "createdTime": "2022-1-3 16:58:40",
-  "updatedTime": "2022-1-9 17:06:30",
+  "updatedTime": "2022-1-16 20:42:44",
   "profile": {
     "default": {
       "db": "D53BAE30-A2ED-4863-A94B-E5D5A8CA97AE",
@@ -416,25 +416,7 @@
       ],
       "fields": [
         {
-          "defKey": "NICK_NAME",
-          "defName": "昵称",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 90,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "A8B55A28-0DD8-4A15-9E0D-8593C7E08D6F",
-          "uiHint": "",
-          "id": "9077D59B-E1F7-48EC-B846-4330C56D089B",
-          "isStandard": true
-        },
-        {
-          "defKey": "REAL_NAME",
+          "defKey": "USER_NAME",
           "defName": "用户名",
           "comment": "",
           "type": "VARCHAR",
@@ -452,7 +434,7 @@
           "isStandard": true
         },
         {
-          "defKey": "USER_PASS",
+          "defKey": "PASS_WORD",
           "defName": "密码",
           "comment": "",
           "type": "VARCHAR",
@@ -467,6 +449,42 @@
           "domain": "C9463EDA-01A0-439C-A5A0-DC586CBD8F33",
           "uiHint": "",
           "id": "56039F08-30C6-4511-BCBC-37EC9A08BF29",
+          "isStandard": true
+        },
+        {
+          "defKey": "EMAIL",
+          "defName": "邮件地址",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "C9463EDA-01A0-439C-A5A0-DC586CBD8F33",
+          "uiHint": "",
+          "id": "27073E8D-DC42-44C8-BF2A-7F1C7C4448CF",
+          "isStandard": true
+        },
+        {
+          "defKey": "PHONE",
+          "defName": "手机号",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "C9463EDA-01A0-439C-A5A0-DC586CBD8F33",
+          "uiHint": "",
+          "id": "7390D151-346C-4EDE-AE55-37AFCC85010C",
           "isStandard": true
         },
         {
@@ -503,96 +521,6 @@
           "domain": "",
           "uiHint": "",
           "id": "FC0031B1-152B-4BDA-AFD4-B0971E86A7D9",
-          "isStandard": true
-        },
-        {
-          "defKey": "PHONE",
-          "defName": "手机号",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 90,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "C9463EDA-01A0-439C-A5A0-DC586CBD8F33",
-          "uiHint": "",
-          "id": "7390D151-346C-4EDE-AE55-37AFCC85010C",
-          "isStandard": true
-        },
-        {
-          "defKey": "EMAIL",
-          "defName": "邮件地址",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 90,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "C9463EDA-01A0-439C-A5A0-DC586CBD8F33",
-          "uiHint": "",
-          "id": "27073E8D-DC42-44C8-BF2A-7F1C7C4448CF",
-          "isStandard": true
-        },
-        {
-          "defKey": "REVISION",
-          "defName": "乐观锁",
-          "comment": "",
-          "domain": "D1CE11FE-4D25-4097-93FC-504214371422",
-          "type": "INT",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": true,
-          "refDict": "",
-          "uiHint": "",
-          "id": "1FFC4572-0443-405B-8651-B5D9838C92AA",
-          "isStandard": true
-        },
-        {
-          "defKey": "CREATED_TIME",
-          "defName": "创建时间",
-          "comment": "",
-          "domain": "2BBBFEFE-6871-48FA-852D-14E2FA68FB68",
-          "type": "DATETIME",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": true,
-          "refDict": "",
-          "uiHint": "",
-          "id": "C3D84C79-F6B3-4341-A09E-995D9986C945",
-          "isStandard": true
-        },
-        {
-          "defKey": "UPDATED_TIME",
-          "defName": "更新时间",
-          "comment": "",
-          "domain": "2BBBFEFE-6871-48FA-852D-14E2FA68FB68",
-          "type": "DATETIME",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": true,
-          "refDict": "",
-          "uiHint": "",
-          "id": "1872BF84-BE14-44C0-A909-B2C2006BD747",
           "isStandard": true
         }
       ],
@@ -701,7 +629,23 @@
           "id": "52B46CAB-831A-4D85-9D94-633171A8F617"
         },
         {
-          "defKey": "URL",
+          "defKey": "OWNER",
+          "defName": "所有者",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "C9463EDA-01A0-439C-A5A0-DC586CBD8F33",
+          "id": "9B5243A4-8C65-4C8A-92DE-C9819A5AD262"
+        },
+        {
+          "defKey": "DATA",
           "defName": "资源所在URL",
           "comment": "",
           "type": "",
@@ -717,7 +661,7 @@
           "id": "DE4B48BF-150E-4ABC-A156-08F2689AF694"
         },
         {
-          "defKey": "NAME",
+          "defKey": "TITLE",
           "defName": "音乐名称",
           "comment": "",
           "type": "",
@@ -811,23 +755,6 @@
           "refDict": "",
           "domain": "D1CE11FE-4D25-4097-93FC-504214371422",
           "id": "CA35E858-622D-472E-82ED-3E8AA57200F4"
-        },
-        {
-          "defKey": "REVISION",
-          "defName": "乐观锁",
-          "comment": "",
-          "domain": "882C55C2-544C-4804-9742-325199933EFB",
-          "type": "",
-          "len": 32,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": true,
-          "refDict": "",
-          "uiHint": "",
-          "id": "B700815C-2231-44AC-853D-501D4FDA1EC0"
         }
       ],
       "correlations": [],
@@ -1010,7 +937,7 @@
           "id": "A7362550-8449-4C3D-ACD6-EB214036DE93"
         },
         {
-          "defKey": "USER",
+          "defKey": "OWNER",
           "defName": "",
           "comment": "",
           "type": "",
@@ -1074,53 +1001,20 @@
           "id": "4C063F53-5F8C-41C4-9B2F-9515112BEA71"
         },
         {
-          "defKey": "FAVORITE",
+          "defKey": "VIDEO",
           "defName": "",
           "comment": "",
           "type": "",
           "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": true,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "D1CE11FE-4D25-4097-93FC-504214371422",
-          "id": "341870BA-A237-4CB0-BBA3-65D48C4B785A"
-        },
-        {
-          "defKey": "COMMENT",
-          "defName": "",
-          "comment": "",
-          "type": "",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": true,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "D1CE11FE-4D25-4097-93FC-504214371422",
-          "id": "3D1D3C6D-D383-467B-AFF2-E125F6D934B9"
-        },
-        {
-          "defKey": "REVISION",
-          "defName": "乐观锁",
-          "comment": "",
-          "domain": "882C55C2-544C-4804-9742-325199933EFB",
-          "type": "",
-          "len": 32,
           "scale": "",
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
           "defaultValue": "",
-          "hideInGraph": true,
+          "hideInGraph": false,
           "refDict": "",
-          "uiHint": "",
-          "id": "A4212120-A94D-44F6-ACD9-9D8C39E8AF5F"
+          "domain": "C9463EDA-01A0-439C-A5A0-DC586CBD8F33",
+          "id": "DA2833DA-04CD-49E8-8800-B420193A9810"
         }
       ],
       "correlations": [],
@@ -1212,7 +1106,7 @@
       ],
       "fields": [
         {
-          "defKey": "id",
+          "defKey": "ID",
           "defName": "",
           "comment": "",
           "type": "",
@@ -1228,7 +1122,7 @@
           "id": "53B6E6B8-D45A-4AE2-AD70-EBE56D851258"
         },
         {
-          "defKey": "owner",
+          "defKey": "OWNER",
           "defName": "",
           "comment": "",
           "type": "",
@@ -1244,7 +1138,7 @@
           "id": "5818ABDC-3DD3-4CA7-9F4C-897C2329E45E"
         },
         {
-          "defKey": "friend",
+          "defKey": "FRIENDS",
           "defName": "",
           "comment": "",
           "type": "",
@@ -1260,23 +1154,7 @@
           "id": "89741BAE-1AE1-43FC-AE1A-E1B8AE32FF44"
         },
         {
-          "defKey": "create_time",
-          "defName": "",
-          "comment": "",
-          "type": "",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "2BBBFEFE-6871-48FA-852D-14E2FA68FB68",
-          "id": "A9C1AA41-58AD-4424-81E0-925C490FD21F"
-        },
-        {
-          "defKey": "Intimacy",
+          "defKey": "INTIMACY",
           "defName": "",
           "comment": "",
           "type": "",
@@ -1292,21 +1170,20 @@
           "id": "377AD3C9-BF81-4D9D-94C6-4818D66BEAF9"
         },
         {
-          "defKey": "REVISION",
-          "defName": "乐观锁",
+          "defKey": "CREATE_TIME",
+          "defName": "",
           "comment": "",
-          "domain": "882C55C2-544C-4804-9742-325199933EFB",
           "type": "",
-          "len": 32,
+          "len": "",
           "scale": "",
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
           "defaultValue": "",
-          "hideInGraph": true,
+          "hideInGraph": false,
           "refDict": "",
-          "uiHint": "",
-          "id": "0738B59D-83DD-48D7-BAA2-8C504C763047"
+          "domain": "2BBBFEFE-6871-48FA-852D-14E2FA68FB68",
+          "id": "A9C1AA41-58AD-4424-81E0-925C490FD21F"
         }
       ],
       "correlations": [],
@@ -1398,7 +1275,7 @@
       ],
       "fields": [
         {
-          "defKey": "id",
+          "defKey": "ID",
           "defName": "",
           "comment": "",
           "type": "",
@@ -1414,7 +1291,7 @@
           "id": "D9A07042-964D-453B-B14B-749705DE5D9A"
         },
         {
-          "defKey": "user",
+          "defKey": "OWNER",
           "defName": "",
           "comment": "",
           "type": "",
@@ -1430,7 +1307,7 @@
           "id": "47EBDA29-0BFF-4265-992A-600C032FD023"
         },
         {
-          "defKey": "share_id",
+          "defKey": "SHARE_ID",
           "defName": "",
           "comment": "",
           "type": "",
@@ -1446,7 +1323,7 @@
           "id": "AE69F13C-9C87-4D7D-B20E-D94CDEA836F5"
         },
         {
-          "defKey": "comment_info",
+          "defKey": "COMMENT_INFO",
           "defName": "",
           "comment": "",
           "type": "",
@@ -1460,23 +1337,143 @@
           "refDict": "",
           "domain": "C9463EDA-01A0-439C-A5A0-DC586CBD8F33",
           "id": "13D9D8EA-9133-41AB-BD40-FF68D75D4958"
+        }
+      ],
+      "correlations": [],
+      "indexes": []
+    },
+    {
+      "id": "371D2EC7-1D65-4336-87C7-E957D1982323",
+      "defKey": "Favourite",
+      "defName": "点赞",
+      "comment": "",
+      "properties": {},
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "freeze": false,
+          "refKey": "hideInGraph",
+          "hideInGraph": true
         },
         {
-          "defKey": "REVISION",
-          "defName": "乐观锁",
+          "freeze": true,
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "freeze": true,
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "ID",
+          "defName": "ID",
           "comment": "",
-          "domain": "882C55C2-544C-4804-9742-325199933EFB",
           "type": "",
-          "len": 32,
+          "len": "",
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": true,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "C9463EDA-01A0-439C-A5A0-DC586CBD8F33",
+          "id": "471FF2D9-A121-432C-BAB7-2DE58818C7E2"
+        },
+        {
+          "defKey": "OWNER",
+          "defName": "所有者",
+          "comment": "",
+          "type": "",
+          "len": "",
           "scale": "",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoIncrement": false,
           "defaultValue": "",
-          "hideInGraph": true,
+          "hideInGraph": false,
           "refDict": "",
-          "uiHint": "",
-          "id": "D78C2303-26DF-4C91-95F2-1F3D88590A7F"
+          "domain": "C9463EDA-01A0-439C-A5A0-DC586CBD8F33",
+          "id": "038787FC-AED4-47EE-81AD-37D2117E862F"
+        },
+        {
+          "defKey": "SHARE_ID",
+          "defName": "所点赞评论的id",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "C9463EDA-01A0-439C-A5A0-DC586CBD8F33",
+          "id": "8D3DB84F-CD4C-4685-850F-2900909C8429"
         }
       ],
       "correlations": [],

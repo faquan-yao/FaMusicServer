@@ -1,4 +1,14 @@
 # log dir
 logs
 # cache files.
-FaMusic\__pycache__
+FaMusic/__pycache__/
+
+# database
+db.sqlite3
+
+# migrations
+FaMusic/migrations/
+
+# data files
+avatar/
+images/

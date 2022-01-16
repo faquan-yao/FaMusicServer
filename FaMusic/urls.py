@@ -6,5 +6,6 @@ import FaMusic.views
 urlpatterns = [
     path('register', FaMusic.views.register),
     path('login', FaMusic.views.login),
-    path('unregister', FaMusic.views.unregister)
+    path('logout', FaMusic.views.logout),
+    path('queryMusic', FaMusic.views.queryMusic)
 ]

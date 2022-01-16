@@ -1,10 +1,11 @@
 import logging
-import json
 
+from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.http import JsonResponse
 
 from .models import User
+from .models import Music
 
 log = logging.getLogger(__name__)
 
@@ -13,62 +14,64 @@ log = logging.getLogger(__name__)
 
 def register(request):
     if request.method == 'POST':
-        phone = request.POST.get('phone_number')
-        nickname = request.POST.get('nick_name')
-        password = request.POST.get('password')
-        photo = request.FILES.get("head_photo")
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        phone_number = request.POST.get("phone_number")
+        email = request.POST.get("email")
+        intro = request.POST.get("intro")
+        avatar = request.POST.get("avatar")
+
         try:
-            user = User.objects.get(nick_name=nickname)
-            log.debug(f"nick_name {user.nick_name} has registered.")
+            user = User.objects.get(username=username)
+            log.debug(f"nick_name {user.username} has registered.")
             return HttpResponse(f"register failed, nick_name has registered.")
         except User.DoesNotExist:
-            user_obj = User.objects.create(phone_number=phone, nick_name=nickname, password=password)
-            log.debug(f"register id = {user_obj.id}, username = {user_obj.nick_name}, password = {user_obj.password}")
-            user_obj.head_photo = photo
+            user_obj = User.objects.create_user(username=username, password=password,
+                                                phone_number=phone_number, email=email,
+                                                intro=intro, avatar=avatar)
+            user_obj.avatar = avatar
             user_obj.save()
-            return HttpResponse(f"id = {user_obj.id}")
+
+            log.debug(f"register username = {user_obj.username}")
+            return HttpResponse(f"username = {user_obj.username}")
 
     return HttpResponse("register failed!")
 
 
 def login(request):
     if request.method == 'POST':
-        account = request.POST.get('account')
-        password = request.POST.get('password')
-        log.debug(f"account = {account}, password = {password}")
-        try:
-            user = User.objects.get(id=account)
-            if password == user.password:
-                return HttpResponse(user)
-            else:
-                log.debug("password error!")
-                return HttpResponse("account or password error!")
-        except User.DoesNotExist:
-            log.debug("account is not exist!")
-            return HttpResponse("account is not exist!")
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        log.debug(f"username = {username}, password = {password}")
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            return HttpResponse("login successful")
+        else:
+            return HttpResponse("login error!")
     else:
-        return HttpResponse("request error!")
+        return HttpResponse("login error!")
 
 
-def unregister(request):
-    if request.method == 'POST':
-        account = request.POST.get('account')
-        password = request.POST.get('password')
-        log.debug(f"unregister account {account}")
-        try:
-            user = User.objects.get(id=account)
-            user.delete()
-            return HttpResponse("unregister success!")
-        except User.DoesNotExist:
-            log.debug(f"account {account} not exist.")
-            return HttpResponse("unregister error")
-    else:
-        return HttpResponse("unregister error")
+def logout(request):
+    auth.logout(request)
+    return HttpResponse("logout successful")
 
 
+@login_required
 def queryMusic(request):
-    pass
+    if request.method == "POST":
+        musics = Music.objects.filter(owner__music=request.user.pk)
+        if musics is not None:
+            print(musics.count())
+            return HttpResponse(musics.count())
+        else:
+            return HttpResponse("queryMusic error1.")
+    return HttpResponse("queryMusic error2.")
 
 
+
+
+@login_required
 def uploadMusic(request):
     pass
