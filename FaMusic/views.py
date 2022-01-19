@@ -61,10 +61,11 @@ def logout(request):
 @login_required
 def queryMusic(request):
     if request.method == "POST":
-        musics = Music.objects.filter(owner__music=request.user.pk)
+        log.debug(f"user = {request.user.username}")
+        musics = request.user.music_set.all()
         if musics is not None:
             print(musics.count())
-            return HttpResponse(musics.count())
+            return HttpResponse(musics.first())
         else:
             return HttpResponse("queryMusic error1.")
     return HttpResponse("queryMusic error2.")
@@ -74,4 +75,18 @@ def queryMusic(request):
 
 @login_required
 def uploadMusic(request):
-    pass
+    if request.method == "POST":
+        log.debug(f"user = {request.user.username}")
+        owner = request.user
+        data = request.POST.get("data")
+        title = request.POST.get("title")
+        author = request.POST.get("author")
+        album = request.POST.get("album")
+        album_inf = request.POST.get("album_inf")
+        album_pic = request.POST.get("album_pic")
+        total_time = request.POST.get("time")
+        music = Music.objects.create(owner=owner, data=data, title=title, author=author,
+                                     album=album, album_inf=album_inf, album_pic=album_pic,
+                                     total_time=total_time)
+        return HttpResponse(music)
+    return HttpResponse("Upload music error.")
