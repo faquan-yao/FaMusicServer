@@ -28,7 +28,7 @@ def uuid_general():
 
 class User(AbstractUser):
     phone_number = models.CharField(default="", max_length=32)
-    avatar = models.ImageField(upload_to=get_avatar_file_path, verbose_name="avatar", null=True)
+    avatar = models.ImageField(upload_to=get_avatar_file_path, null=True)
     intro = models.CharField(default="", max_length=255)
 
     def __str__(self):

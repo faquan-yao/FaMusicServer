@@ -19,7 +19,7 @@ def register(request):
         phone_number = request.POST.get("phone_number")
         email = request.POST.get("email")
         intro = request.POST.get("intro")
-        avatar = request.POST.get("avatar")
+        avatar = request.FILES.get("avatar")
 
         try:
             user = User.objects.get(username=username)
@@ -78,15 +78,23 @@ def uploadMusic(request):
     if request.method == "POST":
         log.debug(f"user = {request.user.username}")
         owner = request.user
-        data = request.POST.get("data")
+        data = request.FILES.get("data")
         title = request.POST.get("title")
         author = request.POST.get("author")
         album = request.POST.get("album")
         album_inf = request.POST.get("album_inf")
-        album_pic = request.POST.get("album_pic")
+        album_pic = request.FILES.get("album_pic")
         total_time = request.POST.get("time")
-        music = Music.objects.create(owner=owner, data=data, title=title, author=author,
-                                     album=album, album_inf=album_inf, album_pic=album_pic,
+        m = request.user.music_set.all().first()
+        if m is None:
+            music = Music.objects.create(owner=owner, title=title, author=author,
+                                     album=album, album_inf=album_inf,
                                      total_time=total_time)
-        return HttpResponse(music)
+            music.data = data
+            music.album_pic = album_pic
+            music.save()
+            return HttpResponse(music)
+        else:
+            return HttpResponse(f"music {title} has been upload.")
+
     return HttpResponse("Upload music error.")
