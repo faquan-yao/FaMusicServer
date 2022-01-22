@@ -64,7 +64,7 @@ def queryMusic(request):
         log.debug(f"user = {request.user.username}")
         musics = request.user.music_set.all()
         if musics is not None:
-            log.debug(musics.count())
+            log.debug(f"music.count() = {musics.count()}")
             return HttpResponse(musics.first())
         else:
             return HttpResponse("queryMusic error1.")
