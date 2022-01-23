@@ -36,6 +36,10 @@ class User(AbstractUser):
                                                                            self.phone_number, self.avatar,
                                                                            self.intro)
 
+    def toJson(self):
+        return '{"username":"%s", "email":"%s", "phone":"%s", "avatar":"%s", "intro":"%s"}' % (self.username, self.email,
+                                                                           self.phone_number, self.avatar,
+                                                                           self.intro)
 
 class Music(models.Model):
     id = models.UUIDField(primary_key=True, editable=False, default=uuid_general)

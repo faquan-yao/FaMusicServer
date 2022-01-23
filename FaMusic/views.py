@@ -1,4 +1,5 @@
 import logging
+import json
 
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
@@ -46,7 +47,7 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return HttpResponse(user)
+            return HttpResponse(user.toJson())
         else:
             return HttpResponse("login error!")
     else:

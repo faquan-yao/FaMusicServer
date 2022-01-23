@@ -198,7 +198,7 @@ LOGGING = {
         # 类型 为 django 处理所有类型的日志， 默认调用
         'django': {
             'handlers': ['default', 'console'],
-            'level': 'DEBUG',
+            'level': 'INFO',
             'propagate': False
         },
         # log 调用时需要当作参数传入
