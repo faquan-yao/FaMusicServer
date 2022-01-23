@@ -3,6 +3,8 @@ logs/
 # cache files.
 FaMusic/__pycache__/
 __pycache__/
+FaMusicServer/__pycache__/
+
 
 # database
 db.sqlite3
@@ -14,3 +16,5 @@ FaMusic/migrations/
 avatar/
 images/
 music/
+
+venv/

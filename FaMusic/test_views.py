@@ -3,8 +3,8 @@ import requests
 
 
 class Test(TestCase):
-    urlbase = "http://120.79.203.124:8090/FaMusic"
-    #urlbase = "http://127.0.0.1:8000/FaMusic"
+    #urlbase = "http://120.79.203.124:8090/FaMusic"
+    urlbase = "http://127.0.0.1:8000/FaMusic"
 
     def test_reg(self):
         payload = dict(username="faquan.yao", password="123456", phone_number="18219142019",
