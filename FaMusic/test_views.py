@@ -7,7 +7,7 @@ class Test(TestCase):
     urlbase = "http://127.0.0.1:8000/FaMusic"
 
     def test_reg(self):
-        payload = dict(username="faquan.yao", password="123456", phone_number="18219142019",
+        payload = dict(username="faquan.yao", password="123456", phone_number="12345678910",
                        email="yaofaquan123@sina.com", intro="this is me")
         files = dict(avatar=open("photo.png", "rb"))
         r = requests.post(f"{self.urlbase}/register", data=payload, files=files)
@@ -55,6 +55,14 @@ class Test(TestCase):
         r = requests.post(f"{self.urlbase}/queryMusic", cookies=r.cookies)
         print(r.status_code)
         print(r.text)
+
+        r = requests.get(f"{self.urlbase}/medias/avatar/faquan.yao/avatar_tVSUo9N.png", stream=True)
+        file = open("photo_relocal.png", "wb")
+        for chunk in r.iter_content(chunk_size=1024):
+            if chunk:
+                file.write(chunk)
+        file.close()
+
 
     def test_upload_music(self):
         payload = dict(username="faquan.yao", password="123456")

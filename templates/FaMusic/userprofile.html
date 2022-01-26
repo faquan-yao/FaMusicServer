@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <li>{{ user.username }}</li>
+  <li>{{ user.email }}</li>
+  <li>{{ user.phone }}</li>
+  <li>{{ user.avatar }}</li>
+  <li>{{ MEDIA_URL }}</li>
+  <img class="media-object" src="{{MEDIA_URL}}{{ user.avatar }}"/>
+  <li>{{ user.intro }}</li>
+</body>
+</html>

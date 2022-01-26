@@ -1,10 +1,11 @@
 import logging
-import json
 
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.http import HttpResponse, FileResponse
+from django.shortcuts import render
 
+from FaMusicServer.settings import MEDIA_URL
 from .models import User
 from .models import Music
 
@@ -72,8 +73,6 @@ def queryMusic(request):
     return HttpResponse("queryMusic error2.")
 
 
-
-
 @login_required
 def uploadMusic(request):
     if request.method == "POST":
@@ -89,8 +88,8 @@ def uploadMusic(request):
         m = request.user.music_set.all().first()
         if m is None:
             music = Music.objects.create(owner=owner, title=title, author=author,
-                                     album=album, album_inf=album_inf,
-                                     total_time=total_time)
+                                         album=album, album_inf=album_inf,
+                                         total_time=total_time)
             music.data = data
             music.album_pic = album_pic
             music.save()
@@ -99,3 +98,11 @@ def uploadMusic(request):
             return HttpResponse(f"music {title} has been upload.")
 
     return HttpResponse("Upload music error.")
+
+
+def getUserProfile(request):
+    user = User.objects.all().get(username="faquan.yao")
+    return render(request, "FaMusic/userprofile.html", {
+        "user": user,
+        "MEDIA_URL": MEDIA_URL
+    })
