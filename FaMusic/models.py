@@ -6,6 +6,9 @@ from django.contrib.auth.models import AbstractUser
 
 
 # Create your models here.
+from FaMusicServer.settings import MEDIA_URL
+
+
 def get_avatar_file_path(instance, filename):
     return 'avatar/%s/avatar%s' % (instance.username, os.path.splitext(filename)[1])
 
@@ -39,7 +42,7 @@ class User(AbstractUser):
     def toJson(self):
         return '{"username":"%s", "email":"%s", "phone":"%s", "avatar":"%s", "intro":"%s"}' % (
             self.username, self.email,
-            self.phone_number, self.avatar,
+            self.phone_number, f'{MEDIA_URL}{self.avatar}',
             self.intro)
 
 
